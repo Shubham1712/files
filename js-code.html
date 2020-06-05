@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <script>
+            const table = document.querySelector('table');
+
+            console.log('asdfadsf');
+                let headerCell = null;
+
+                for (let row of table.rows) {
+                const firstCell = row.cells[0];
+                
+                if (headerCell === null || firstCell.innerText !== headerCell.innerText) {
+                    headerCell = firstCell;
+                } else {
+                    headerCell.rowSpan++;
+                    firstCell.remove();
+                }
+                }
+            </script>
+            <style>
+            table, tr, td {
+                border: solid 1px black;
+                }           
+            </style>
+    </head>
+    
+    <body>
+
+            <table>
+                    <tr>
+                      <td>fish</td>
+                      <td>salmon</td>
+                    </tr>
+                    <tr>
+                      <td>fish</td>
+                      <td>cod</td>
+                    </tr>
+                    <tr>
+                      <td>fish</td>
+                      <td>plaice</td>
+                    </tr>
+                    <tr>
+                      <td>bird</td>
+                      <td>robin</td>
+                    </tr>
+                    <tr>
+                      <td>bird</td>
+                      <td>crow</td>
+                    </tr>
+                  </table>
+        </body>
+
+</html>

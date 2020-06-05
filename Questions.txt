@@ -1,0 +1,63 @@
+
+forward name="success" path="breakdown.options" />
+<forward name="success_patrol" path="breakdown.patroloptions" />
+<forward name="success-group" path="/view-covertypes.do" redirect="true" />
+			
+
+store and forward process:
+
+1. what tiara does for pending policy issues?
+2. Is these written in soap or rest?
+3. Affiliate and affinity mobile journey URLs.
+
+
+Who do what:
+
+1. DBA team -
+2. Css guy -
+3. PL issues-
+4. PL deployment -
+5. where to deploy whom to ask -
+6. 
+
+1. Affinity static 	      - from where price get fetch?
+2. Affiliate cashback     - gives discounted price?
+3. Affiliate non-cashback - gives what?
+4. Payment gateway		  - how dotcom application connects to v4 and jpmc?
+5. Tiara				  - how dotcom application connects to Tiara through tia-webservies?
+6. myaa					  - What is myaa?
+7. prov & prom code 	  - prov code is used to fetch prices and prom code is baiscally used for what?
+8. Affinity				  - How AA sells membership?
+9. Mobile road journey adapter use?
+10. What is Thunderhead?
+11. What is non-EBC controllers?
+12. ebc 				  - Could we renew the policy?
+13. Complete database model diagram?
+14. General dataflow for breakdown via diagram.
+15. Third party calls?
+
+
+Shubham and I have below queries from ROAD,
+
+1. Prices are fetched from TIARA. Overview for pricing. Is there anything in dotcom db for pricing which needs to be taken care of.
+2. Difference between cashback and non-cashback affiliates. Cashback affiliates give discount, for non-cashback - ? 
+4. Dotcom application connectivity to v4 and JPMC. Does it uses environment config only or does some applications use their own config?
+5. Tiara integration in road. 
+6. Tiara slowness issue. Any fix available from Tiara end?
+7. What is myaa?
+7. prov & prom code - prov code is used to fetch prices, differentiate journeys and prom code is basically used for what?
+8. Affinity are group of people. So how membership is sold to each user?
+9. Use of Adapter projects in mobile and EBC
+10. What is Thunderhead
+11. What is non-EBC controllers? It's present in general data flow diagram for road.
+12. EBC - How renewal and cancellation are done? Do we have any role in that? 
+13. Database overview. Important tables in ROAD in tiara and dotcom db.
+15. Third party calls used by road. - (Experian, BAP, TIARA) Is there anything else. Go through for each of them
+16. Sitecore overview.
+17. We are implementing dual membership lookup for cathie and tiara members. Any risks or specific requirements in road for that
+18. EBC live issues that happened previously.
+19. What is holding page
+20. Server and apache config for road.
+21. Web fail reports? What are EBC fail reports. Where we can check them?
+22. Teamsite deployments. Where can we check static content deployed over prelives.
+23. Backlog road tickets assigned to Yogesh

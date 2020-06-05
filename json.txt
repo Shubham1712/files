@@ -1,0 +1,2 @@
+AWS is cloud service provided by amazon
+We can create free tier account to practice it without any charges.

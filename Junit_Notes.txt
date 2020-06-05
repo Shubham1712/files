@@ -1,0 +1,11 @@
+
+Junit:-
+
+JUnit test framework provides the following important features −
+
+Fixtures	-  fixed state of a set of objects used as a baseline for running tests
+				setUp() method, which runs before every test invocation.
+				tearDown() method, which runs after every test method.
+Test suites	- 	bundles a few unit test cases and runs them together
+Test runners-	Test runner is used for executing the test cases. 
+JUnit classes-  Assert, TestCase, TestResult.

@@ -1,0 +1,16 @@
+
+
+logbackback.xml?
+log level - error, warn, info?
+
+Lambda
+Stream vs Collections
+Method reference : instance, static, Constructor
+functional interface : Biconsumer, Consumer, Function, Predicate, 
+Collecters vs Collections
+StringJoiner
+Java Type Inference
+Javasript Nashorn
+Parameter Reflection
+Type Annotations
+JDBC improvements

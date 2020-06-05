@@ -1,0 +1,140 @@
+
+
+Update breakdown-core version in theaacom as well as mobile road project.
+
+CREATE breakdown-core RC first then update breakdown-core version in theaacom as well as mobile road project. 
+
+
+
+Microservices:
+
+Best Practices:
+
+Separate data store for each Microservice
+Keep code of a similar level of maturity.
+Separate build for each Micro service
+Always treat- sever as stateless.
+
+
+1. Introduction
+2. QuickStart - springboot CLI
+3. Bootstrapping  - 
+		Creating jar file
+				To create jar file:-
+				1. Maven - mvn clean install (jar under target folder)
+				2. Gradle - gradle clean build(under  build/libs)
+				Run jar -  java –jar <JARFILE>
+
+4. Tomcat Deployment - 
+		Creating war file		
+				Extend Application class by SpringBootServletInitializer
+				Add start class for build process
+				1. maven - <start-class>com.tutorialspoint.demo.DemoApplication</start-class>
+				2. Gradle - mainClassName="com.tutorialspoint.demo.DemoApplication"
+				
+				Update packaging JAR into WAR
+				1. maven - <packaging>war</packaging>
+				2. Gradle - apply plugin: ‘war’
+							apply plugin: ‘application’
+							
+				To create war:-
+				1. maven - mvn package
+				2. Gradle - gradle clean build
+
+5. .yml vs .properties file:-  yml (Yaml Ain't Markup Language)
+		1. Strictly speaking, .yml file is advantageous over .properties file as it has type safety, hierarchy and supports list.
+		2. To use properties file from different location use -Dspring.config.location = C:\application.properties while running jar file.
+		3. Use of @Value Annotation
+		4. Spring Boot Active Profile
+			Ex. application.properties, application-dev.properties, application-prod.properties
+			While running the application jar file you can specify which file to use as below
+				java -jar JARFILE_NAME  --spring.profiles.active=dev
+					
+6. Logging:-
+		1. SpringBoot Uses Apache Commons logging
+		2. If you are using Spring Boot Starters, Logback will provide a good support for logging.
+		3. You can also add the debug mode to your application.properties file as -- "debug = true"
+		4. You can specify the own log file name using the property as -- logging.file = /var/tmp/mylog.log
+		5. By default, the log file name is "spring.log".
+		6. To set log level -- logging.level.root = WARN.
+		7. Spring Boot supports all logger levels such as “TRACE”, “DEBUG”, “INFO”, “WARN”, “ERROR”, “FATAL”, “OFF”. 
+	
+7. RESTful Webservices-
+8. Exception Handling-
+		1. The @ControllerAdvice is an annotation, to handle the exceptions globally.
+		2. The CustomException exception class should extend the RuntimeException.
+		
+9. Interceptor-
+		1. You can use an interceptor to add the request header before sending the request to the controller and add the response header before sending the response to the client.
+		2. To work with interceptor, you need to create @Component class that supports it and it should implement the HandlerInterceptor interface.
+		3. Methods- preHandle(),  postHandle(), afterCompletion().
+		4. You will have to register this Interceptor with InterceptorRegistry by using WebMvcConfigurerAdapter.
+		
+10. Servlet Filter-
+		1. A filter is an object used to intercept the HTTP requests and responses of your application.
+		2. The component class should implement Filter interface.
+		
+11. Tomcat Port Number-
+		1. If the server.port number is "0" while starting the Spring Boot application, Tomcat uses the random port number.
+		
+12. Rest Template-
+		1. Rest Template is used to create applications that consume RESTful Web Services.
+		2. exchange() method to consume the web services for all HTTP methods.
+		3. First you have to create bean for RestTemplate.
+		4. Autowired the Rest Tempalte object in controller.
+		5. use HttpHeaders, HttpEntity and then provide url, HttpMethod and return type for Exchange() method.
+		
+13. Service Components-
+		1. Service Components are the class file which contains @Service annotation. These class files are used to write business logic in a different layer, separated from @RestController class file.
+		
+14. Thymeleaf-
+		1. Thymeleaf is a Java-based library used to create a web application. It provides a good support for serving a XHTML/HTML5 in web applications.
+		
+15. CORS Support-
+		1. For example, your web application is running on 8080 port and by using JavaScript you are trying to consuming RESTful web services from 9090 port.
+		2. We can set the CORS configuration globally in main Spring Boot application.
+		
+16. Scheduling-
+		1. Scheduling is a process of executing the tasks for the specific time period.
+		2. The @EnableScheduling annotation is used to enable the scheduler for your application
+		3. The @Scheduled annotation is used to trigger the scheduler for a specific time period.
+		
+17.  Enabling HTTPS-
+		1. Obtain the SSL certificate – Create a self-signed certificate or get one from a Certificate Authority
+		2. Enable HTTPS and 443 port
+
+18. Eureka Server-
+		1. Eureka Server is an application that holds the information about all client-service applications.
+		2. By default, the Eureka Server registers itself into the discovery. 
+		3. Add @EnableEurekaServer in SpringBoot Application.
+		4. Add below in application.properties file-
+			eureka.client.registerWithEureka = false
+			eureka.client.fetchRegistry = false
+			server.port = 8761
+		5. Dependency-
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka-server</artifactId>
+		
+19. Service Registration with Eureka-
+		1. Add @EnableEurekaClient in SpringBoot Application class.
+		2. Add following code to application.properties file-	
+			eureka.client.serviceUrl.defaultZone  = http://localhost:8761/eureka
+			eureka.client.instance.preferIpAddress = true
+			spring.application.name = eurekaclient
+
+20. Zuul Proxy Server and Routing-
+		1. Zuul Server is a gateway application that handles all the requests and does the dynamic routing of microservice applications.
+		2. The Zuul Server is also known as Edge Server.
+		3. Add @EnableZuulProxy in SpringBoot Application.
+		4. Dependency-	
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zuul</artifactId>
+		5. Add following properties in application.properties file-
+			spring.application.name = zuulserver
+			zuul.routes.products.path = /api/demo/**
+			zuul.routes.products.url = http://localhost:8080/
+			server.port = 8111
+			
+			
+			
+			
